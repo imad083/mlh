@@ -56,3 +56,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## CanvasMind frontend
+
+The Next.js app is the CanvasMind visual editor. Diagram state lives in the browser; it does not use Laravel persistence or authentication.
+
+1. Install frontend packages with `npm install`.
+2. Set `NEXT_PUBLIC_API_BASE_URL` to the backend API base, such as `http://localhost:8000/api/v1`.
+3. Run `npm run dev` and open `http://localhost:3000`.
+
+`NEXT_PUBLIC_API_MOCK_MODE=true` uses local mock responses for AI editing and image conversion. Set it to `false` to use the API. The frontend does not contain or require AI credentials.
+
+Use `npm run typecheck` for TypeScript validation and `npm run build` for a production Next.js build. The existing Laravel/Vite app remains available with `npm run laravel:dev` and `npm run laravel:build`.

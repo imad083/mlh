@@ -3,14 +3,28 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "typecheck": "tsc --noEmit",
+        "laravel:dev": "vite",
+        "laravel:build": "vite build"
+    },
+    "dependencies": {
+        "@excalidraw/excalidraw": "^0.18.0",
+        "next": "^15.5.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
         "concurrently": "^10.0.3",
         "laravel-vite-plugin": "^3.1",
+        "@types/node": "^22.15.0",
+        "@types/react": "^19.1.0",
+        "@types/react-dom": "^19.1.0",
         "tailwindcss": "^4.0.0",
+        "typescript": "^5.8.3",
         "vite": "^8.0.0"
     },
     "optionalDependencies": {
