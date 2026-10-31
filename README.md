@@ -53,6 +53,36 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## CanvasMind API
+
+The backend exposes the contract under `/api/v1`:
+
+- `GET /health`
+- `POST /ai/edit` with JSON
+- `POST /ai/image-to-diagram` with `multipart/form-data` (`image`, `mode`, and `diagramType`)
+
+Configure `GEMINI_API_KEY`, `GEMINI_MODEL`, `GEMINI_API_BASE_URL`, `GEMINI_TIMEOUT`, and `FRONTEND_ORIGIN` in `.env`. The model name and image capability must be confirmed against the organizer's provider account before enabling a real integration; tests use HTTP fakes and never send credentials.
+
+Run the API for a frontend device on the local network:
+
+```powershell
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+The frontend should use `http://<backend-device-ip>:8000/api/v1` and the same origin must be configured as `FRONTEND_ORIGIN`.
+
+All responses use:
+
+```json
+{
+  "status": "success",
+  "data": {},
+  "message": "Request processed successfully"
+}
+```
+
+Errors use the same envelope with `"status": "error"` and `"data": null`.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
